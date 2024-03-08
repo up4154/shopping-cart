@@ -1,0 +1,53 @@
+
+
+<div class="container mt-5 d-flex justify-content-center">
+
+    <div class="card text-center w-25" style="background-color: #f8f9fa;">
+      <h2 class="card-header mb-3" style="background-color: #007bff; color: #fff;">Sign Up</h2>
+  
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="card-body">
+        <div class="mb-3">
+          <label for="name" class="col-sm-2 col-form-label">Name:</label>
+          <input type="text" formControlName='name' class="form-control" required>
+          <div class="col-sm-10">
+            <span style="color: red;" *ngIf="userName.errors && (userName.touched || userName.dirty)">
+              <span *ngIf="userName.errors.required">Name is required</span>
+              <span *ngIf="userName.errors.minlength">Min 3 letters required</span>
+            </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="col-sm-2 col-form-label">Email:</label>
+          <input type="email" formControlName='email' class="form-control" required>
+          <div class="col-sm-10">
+            <span style="color: red;" *ngIf="email.errors && (email.touched || email.dirty)">
+              <span *ngIf="email.errors.required">Email is required</span>
+              <span *ngIf="email.errors.pattern">Should be a proper email</span>
+            </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="col-sm-2 col-form-label">Pass:</label>
+          <input type="password" formControlName='password' class="form-control" required>
+          <div class="col-sm-10">
+            <span style="color: red;" *ngIf="password.errors && (password.touched || password.dirty)">
+              <span *ngIf="password.errors.required">Password is required</span>
+              <span *ngIf="password.errors.pattern">Should be strong</span>
+            </span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="col-sm-2 col-form-label">Phone:</label>
+          <input type="number" formControlName='phone' class="form-control" required>
+          <div class="col-sm-10">
+            <span style="color: red;" *ngIf="phone.errors && (phone.touched || phone.dirty)">
+              <span *ngIf="phone.errors.required">Phone is required</span>
+              <span *ngIf="phone.errors.pattern">Should be 10 digits</span>
+            </span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="signUpFlag()">Sign Up</button>
+      </form>
+    </div>
+  </div>
+  

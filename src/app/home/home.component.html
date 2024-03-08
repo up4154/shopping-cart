@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <button  class="btn text-end" (click)="logOut()">Log Out</button>
+</div>
+
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3">
+      <ng-container *ngFor="let p of products">
+        <div class="col mb-4">
+          <div class="card h-100 shadow" style="width: 18rem;">
+            <img src="{{ p.product_img_url }}" class="card-img-top img-fluid" alt="{{ p.product_name }}" style="height: 200px; object-fit:contain;">
+            <div class="card-body">
+              <h5 class="card-title">{{ p.product_name }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ p.product_price | currency:'INR' }}</h6>
+              <button (click)="addToCart(p.product_id)" class="btn btn-primary">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  
